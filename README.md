@@ -13,7 +13,7 @@ During each round, players select one of the three following options:
 * Rock, which beats scissors
 * Paper, which beats rock
 * Scissors, which beats paper
-* 
+
 When the same option is selected by both players, the round is restarted.
 
 ## Prerequisites
