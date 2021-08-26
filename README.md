@@ -1,4 +1,4 @@
-# Rock, Paper Scissors
+# Rock, Paper, Scissors
 
 ## Requirements
 
@@ -22,9 +22,10 @@ When the same option is selected by both players, the round is restarted.
 
 [.Net 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
 
-Clone repository
-Go to src/RPS.Game.Web folder
-run this command dotnet watch run
+## Get Started
+* Clone repository
+* Go to src/RPS.Game.Web folder in the integrated terminal
+* run this command ```dotnet watch run```
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
