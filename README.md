@@ -26,7 +26,7 @@ When the same option is selected by both players, the round is restarted.
 * Clone repository
 * Open repo in Visual Studio Code
 * Go to src/RPS.Game.Web folder in the integrated terminal
-* run this command ```dotnet watch run```
+* Run this command ```dotnet watch run```
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
