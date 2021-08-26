@@ -12,8 +12,8 @@ namespace RPS.Game.Web.Components.Game
     {
         [Inject]
         private PlayerOptionsService PlayerOptionsService { get; set; }
-       
-        public bool StartAgain{ get; set; }
+
+        public bool StartAgain { get; set; }
         public string SelectedOption { get; set; }
         public string MachineOption { get; set; }
         public int PlayerCount { get; set; }
@@ -21,8 +21,8 @@ namespace RPS.Game.Web.Components.Game
         public bool IsWinner { get; set; }
         public string WinnerText { get; set; }
         public string PlayerName { get; set; }
-      
-        public PlayerOption[] PlayerOptions { get; set; }       
+
+        public PlayerOption[] PlayerOptions { get; set; }
 
         protected override async Task OnInitializedAsync()
         {
@@ -31,45 +31,49 @@ namespace RPS.Game.Web.Components.Game
 
         public void OnPlayerSelection(string e)
         {
-            SelectedOption=e;
-            if(MachineOption == SelectedOption){
-                StartAgain=true;
+            SelectedOption = e;
+            if (MachineOption == SelectedOption)
+            {
+                StartAgain = true;
                 return;
             }
 
-            var option = PlayerOptions.Where(x=>x.Name==SelectedOption).FirstOrDefault();
-            var result = option.Beats.Where(x=>x==MachineOption).Any();
+            var option = PlayerOptions.Where(x => x.Name == SelectedOption).FirstOrDefault();
+            var result = option.Beats.Where(x => x == MachineOption).Any();
 
-            if(result)
-             PlayerCount++;
+            if (result)
+                PlayerCount++;
             else
-             MachineCount++;
+                MachineCount++;
 
-            if(PlayerCount==3) {
+            if (PlayerCount == 3)
+            {
                 ResetCounters(true);
             }
-            else if(MachineCount==3) {
-               ResetCounters(false);
+            else if (MachineCount == 3)
+            {
+                ResetCounters(false);
             }
-        
-            StartAgain=true;
+
+            StartAgain = true;
         }
-        private void ResetCounters(bool playerIsWinner){
-            PlayerCount=0;
-            MachineCount=0;
-          var winnerText =playerIsWinner? PlayerName: "Machine";
-            WinnerText=$"{winnerText} Wins!!!";
-            IsWinner=true;
+        private void ResetCounters(bool playerIsWinner)
+        {
+            PlayerCount = 0;
+            MachineCount = 0;
+            var winnerText = playerIsWinner ? PlayerName : "Machine";
+            WinnerText = $"{winnerText} Wins!!!";
+            IsWinner = true;
         }
 
         public void OnMachineSelection(string e)
         {
-          MachineOption=e;       
+            MachineOption = e;
         }
 
         public void OnPlayerNameSet(string e)
         {
-          PlayerName=e;       
+            PlayerName = e;
         }
     }
 }
