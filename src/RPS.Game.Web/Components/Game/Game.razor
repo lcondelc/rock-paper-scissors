@@ -1,0 +1,22 @@
+@using RPS.Game.Web.Components.Alias
+@using RPS.Game.Web.Components.Player
+@using RPS.Game.Web.Components.Machine
+
+@inherits GameViewModel
+
+<Alias OnPlayerNameSet="OnPlayerNameSet" />
+@if (!(PlayerOptions is null) && !string.IsNullOrWhiteSpace(PlayerName))
+{
+    <Player PlayerOptions=@PlayerOptions OnPlayerSelection="OnPlayerSelection" />
+    <Machine MachineOptions=@PlayerOptions OnMachineSelection="OnMachineSelection" StartAgain="StartAgain" />
+
+    if (IsWinner)
+    {
+        <h3 class="win">@WinnerText</h3>
+    }
+    else
+    {
+        <h3>@PlayerName @PlayerCount </h3>
+        <h3>Machine: @MachineCount </h3>
+    }
+}

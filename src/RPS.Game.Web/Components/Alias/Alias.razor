@@ -1,0 +1,13 @@
+
+
+@inherits AliasViewModel
+@if (!HasName)
+{
+    <div class="mb-3">
+        <input @bind="@Name" @onkeydown="KeyboardEventHandler"/>
+    </div>
+}
+else
+{
+    <h2> Ready to Play @Name</h2>
+}
