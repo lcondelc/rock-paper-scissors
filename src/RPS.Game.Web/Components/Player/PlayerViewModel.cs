@@ -7,6 +7,7 @@ namespace RPS.Game.Web.Components.Player
     public partial class PlayerViewModel : ComponentBase
     {
         public string SelectedOption { get; set; }
+        [Parameter]
         public bool Played { get; set; }
 
         [Parameter]
@@ -17,9 +18,11 @@ namespace RPS.Game.Web.Components.Player
 
         protected async Task SelectOptionClick(string selectedOption)
         {
-            SelectedOption = selectedOption;
-            Played = string.IsNullOrWhiteSpace(selectedOption);
-            OnPlayerSelection.InvokeAsync(SelectedOption);
+            if (!Played)
+            {
+                SelectedOption = selectedOption;
+                OnPlayerSelection.InvokeAsync(SelectedOption);
+            }
         }
 
     }

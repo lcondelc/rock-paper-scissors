@@ -12,7 +12,8 @@ namespace RPS.Game.Web.Components.Game
     {
         [Inject]
         private PlayerOptionsService PlayerOptionsService { get; set; }
-
+ [Parameter]
+        public bool Played { get; set; }
         public bool StartAgain { get; set; }
         public string SelectedOption { get; set; }
         public string MachineOption { get; set; }
@@ -33,8 +34,11 @@ namespace RPS.Game.Web.Components.Game
         {
             SelectedOption = e;
             if (MachineOption == SelectedOption)
-            {
+            {   
+                Played=true;
                 StartAgain = true;
+                Played=false;
+            
                 return;
             }
 
@@ -55,25 +59,37 @@ namespace RPS.Game.Web.Components.Game
                 ResetCounters(false);
             }
 
-            StartAgain = true;
+            Played = true;
         }
         private void ResetCounters(bool playerIsWinner)
         {
             PlayerCount = 0;
             MachineCount = 0;
-            var winnerText = playerIsWinner ? PlayerName : "Machine";
-            WinnerText = $"{winnerText} Wins!!!";
+            var winnerText = playerIsWinner ? "win" : "lose";
+            WinnerText = $"You {winnerText}!!!";
             IsWinner = true;
         }
 
-        public void OnMachineSelection(string e)
+        public void OnMachineSelection(PlayerOption e)
         {
-            MachineOption = e;
+            MachineOption = e.Name;
         }
 
         public void OnPlayerNameSet(string e)
         {
             PlayerName = e;
+        }
+
+        public async Task OnClickNextRound(){
+            
+            Played=false;
+            StartAgain=true;
+        }
+
+        public async Task OnClickPlayAgain(){
+          Played=false;
+            StartAgain=true;
+          IsWinner = false;
         }
     }
 }

@@ -5,18 +5,23 @@
 @inherits GameViewModel
 
 <Alias OnPlayerNameSet="OnPlayerNameSet" />
-@if (!(PlayerOptions is null) && !string.IsNullOrWhiteSpace(PlayerName))
+@if (!(PlayerOptions is null || string.IsNullOrWhiteSpace(PlayerName)))
 {
-    <Player PlayerOptions=@PlayerOptions OnPlayerSelection="OnPlayerSelection" />
-    <Machine MachineOptions=@PlayerOptions OnMachineSelection="OnMachineSelection" StartAgain="StartAgain" />
-
     if (IsWinner)
     {
         <h3 class="win">@WinnerText</h3>
+        <button type="button" class="btn btn-primary" @onclick="OnClickPlayAgain">Play Again</button>
     }
     else
     {
-        <h3>@PlayerName @PlayerCount </h3>
+        <Player PlayerOptions=@PlayerOptions OnPlayerSelection="OnPlayerSelection" Played="Played" />
+        <Machine MachineOptions=@PlayerOptions OnMachineSelection="OnMachineSelection" StartAgain="StartAgain"
+    Played="Played" />
+        if (Played)
+        {
+            <button type="button" class="btn btn-primary" @onclick="OnClickNextRound">Next Round</button>
+        }
+        <h3>@PlayerName: @PlayerCount </h3>
         <h3>Machine: @MachineCount </h3>
     }
 }

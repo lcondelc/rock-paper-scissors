@@ -9,5 +9,6 @@ namespace RPS.Game.Web.Models
        public string Name { get; set; }
        public string Image { get; set; }
        public string[] Beats { get; set; }
+       public bool Played { get; set; }
     }
 }

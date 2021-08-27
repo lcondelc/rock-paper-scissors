@@ -11,17 +11,17 @@ namespace RPS.Game.Web.Services
            return new PlayerOption[]{
                 new PlayerOption{
                     Name= "Rock",
-                    Image="https://c0.klipartz.com/pngpicture/390/448/gratis-png-pala-pala-roca-roca-piedra.png",
-                    Beats= new string[] {"Scissor"}
+                    Image="assets/Rock.png",
+                    Beats= new string[] {"Scissors"}
                 },
                  new PlayerOption{
                     Name= "Paper",
-                    Image="https://p7.hiclipart.com/preview/247/72/978/paper-apple-icon-image-format-icon-notes-icon-apple-os-system.jpg",
+                    Image="assets/Paper.png",
                     Beats= new string[] {"Rock"}
                 },
                  new PlayerOption{
-                    Name= "Scissor",
-                    Image="https://www.pngfind.com/pngs/m/104-1043327_1600-x-1600-15-black-transparent-scissor-icon.png",
+                    Name= "Scissors",
+                    Image="assets/Scissors.png",
                     Beats= new string[] {"Paper"}
                 }
             };
