@@ -8,7 +8,7 @@
                 <div class="mb-2 bg-light text-center rounded">
                     <img height="100" width="100" src="@(Played ? MachineSelectedOption.Image : ImageUrl)" alt="@MachineSelectedOption.Name">
                 </div>
-                <div class="name text-muted text-decoration-none text-center pt-1">@(Played?MachineSelectedOption.Name:MachineSelectedOption.Name)</div>
+                <div class="name text-muted text-decoration-none text-center pt-1">@(Played?MachineSelectedOption.Name:string.Empty)</div>
             </a>
         </li>
     </ul>
