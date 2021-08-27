@@ -16,6 +16,8 @@ namespace RPS.Game.Web.Components.Game
         public bool Played { get; set; }
         public bool StartAgain { get; set; }
         public string SelectedOption { get; set; }
+
+        public string WinnerCssClass { get; set; }
         public string MachineOption { get; set; }
         public int PlayerCount { get; set; }
         public int MachineCount { get; set; }
@@ -65,8 +67,8 @@ namespace RPS.Game.Web.Components.Game
         {
             PlayerCount = 0;
             MachineCount = 0;
-            var winnerText = playerIsWinner ? "win" : "lose";
-            WinnerText = $"You {winnerText}!!!";
+            WinnerCssClass = playerIsWinner ? "win" : "lose";
+            WinnerText = $"You {WinnerCssClass}!!!";
             IsWinner = true;
         }
 

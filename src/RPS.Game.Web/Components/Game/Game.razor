@@ -3,25 +3,26 @@
 @using RPS.Game.Web.Components.Machine
 
 @inherits GameViewModel
-
-<Alias OnPlayerNameSet="OnPlayerNameSet" />
-@if (!(PlayerOptions is null || string.IsNullOrWhiteSpace(PlayerName)))
-{
-    if (IsWinner)
+<div class="container-sm">
+    <Alias OnPlayerNameSet="OnPlayerNameSet" />
+    @if (!(PlayerOptions is null || string.IsNullOrWhiteSpace(PlayerName)))
     {
-        <h3 class="win">@WinnerText</h3>
-        <button type="button" class="btn btn-primary" @onclick="OnClickPlayAgain">Play Again</button>
-    }
-    else
-    {
-        <Player PlayerOptions=@PlayerOptions OnPlayerSelection="OnPlayerSelection" Played="Played" />
-        <Machine MachineOptions=@PlayerOptions OnMachineSelection="OnMachineSelection" StartAgain="StartAgain"
-    Played="Played" />
-        if (Played)
+        if (IsWinner)
         {
-            <button type="button" class="btn btn-primary" @onclick="OnClickNextRound">Next Round</button>
+            <h3 class="@WinnerCssClass">@WinnerText</h3>
+            <button type="button" class="btn btn-primary" @onclick="OnClickPlayAgain">Play Again</button>
         }
-        <h3>@PlayerName: @PlayerCount </h3>
-        <h3>Machine: @MachineCount </h3>
+        else
+        {
+            <Player PlayerOptions=@PlayerOptions OnPlayerSelection="OnPlayerSelection" Played="Played" />
+            <Machine MachineOptions=@PlayerOptions OnMachineSelection="OnMachineSelection" StartAgain="StartAgain"
+        Played="Played" />
+            if (Played)
+            {
+                <button type="button" class="btn btn-primary" @onclick="OnClickNextRound">Next Round</button>
+            }
+            <h3>@PlayerName: @PlayerCount </h3>
+            <h3>Machine: @MachineCount </h3>
+        }
     }
-}
+</div>

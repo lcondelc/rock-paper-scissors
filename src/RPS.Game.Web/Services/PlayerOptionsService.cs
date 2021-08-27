@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using System.Linq;
 using RPS.Game.Web.Models;
 
 namespace RPS.Game.Web.Services
@@ -22,6 +21,11 @@ namespace RPS.Game.Web.Services
                  new PlayerOption{
                     Name= "Scissors",
                     Image="assets/Scissors.png",
+                    Beats= new string[] {"Paper"}
+                },
+                new PlayerOption{
+                    Name= "Flamethrower",
+                    Image="assets/Flamethrower.png",
                     Beats= new string[] {"Paper"}
                 }
             };
