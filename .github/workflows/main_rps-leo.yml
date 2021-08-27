@@ -34,6 +34,6 @@ jobs:
       with:
         app-name: rps-leo
         slot-name: Production
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D4811C74594F43A6B7E9969C723A3573 }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5883F00BA9D34907A88BA00F02495CAF }}
         package: ${{env.DOTNET_ROOT}}/myapp
 
