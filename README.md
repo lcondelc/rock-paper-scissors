@@ -24,7 +24,7 @@ When the same option is selected by both players, the round is restarted.
 
 ## Get Started
 * Clone repository
-  ```git clonde git@github.com:lcondelc/rock-paper-scissors.git```
+  ```git clone git@github.com:lcondelc/rock-paper-scissors.git```
 * Open repo in Visual Studio Code
 * Go to src/RPS.Game.Web folder in the integrated terminal
 * Run this command ```dotnet watch run```
